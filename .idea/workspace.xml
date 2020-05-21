@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9262a2f5-b4d3-495f-9cfb-863e87911a1e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NQueensPuzzle/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NQueensPuzzle/src/main/java/RandomRestartHillClimbing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PickUpPlan/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PickUpPlan/src/main/java/LocalSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PickUpPlan/src/main/java/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PickUpPlan/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PickUpPlan/src/main/java/Window.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/LocalSearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Window.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authorization-server" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/src/main/java/bd/edu/seu/employee/EmployeeApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/src/main/java/bd/edu/seu/employee/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/src/main/java/bd/edu/seu/employee/enums/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/src/main/java/bd/edu/seu/employee/exception/ResourceAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/src/main/java/bd/edu/seu/employee/exception/ResourceDoesNotExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/src/main/java/bd/edu/seu/employee/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/src/main/java/bd/edu/seu/employee/model/LoginToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/src/main/java/bd/edu/seu/employee/repository/EmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/src/main/java/bd/edu/seu/employee/service/EmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../emloyee/src/test/java/bd/edu/seu/employee/EmployeeApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../program" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/main/java/bd/edu/seu/student/StudentApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/main/java/bd/edu/seu/student/controller/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/main/java/bd/edu/seu/student/enums/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/main/java/bd/edu/seu/student/enums/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/main/java/bd/edu/seu/student/exception/ResourceAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/main/java/bd/edu/seu/student/exception/ResourceDoesNotExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/main/java/bd/edu/seu/student/model/LoginToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/main/java/bd/edu/seu/student/model/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/main/java/bd/edu/seu/student/repository/StudentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/main/java/bd/edu/seu/student/service/StudentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../student/src/test/java/bd/edu/seu/student/StudentApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/bd/edu/seu/user/Exceptions/ResourceAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/bd/edu/seu/user/Exceptions/ResourceDoesNotExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/bd/edu/seu/user/Model/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/bd/edu/seu/user/Model/Post.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/bd/edu/seu/user/Model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/bd/edu/seu/user/Repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/main/java/com/bd/edu/seu/user/Service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/test/java/com/bd/edu/seu/user/RepositoryTest/UserRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../user/src/test/java/com/bd/edu/seu/user/ServiceTest/UserServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/java/bd/edu/seu/wcfrontendnavigation/WcFrontendNavigationApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/java/bd/edu/seu/wcfrontendnavigation/enums/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/java/bd/edu/seu/wcfrontendnavigation/model/LoginToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/java/bd/edu/seu/wcfrontendnavigation/service/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/java/bd/edu/seu/wcfrontendnavigation/ui/AdmissionOfficerView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/java/bd/edu/seu/wcfrontendnavigation/ui/DeputyRegistrarView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/java/bd/edu/seu/wcfrontendnavigation/ui/Footer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/java/bd/edu/seu/wcfrontendnavigation/ui/HRDeputyView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/java/bd/edu/seu/wcfrontendnavigation/ui/Header.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/java/bd/edu/seu/wcfrontendnavigation/ui/LoginView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/java/bd/edu/seu/wcfrontendnavigation/ui/StudentView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/test/java/bd/edu/seu/wcfrontendnavigation/WcFrontendNavigationApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/test/java/bd/edu/seu/wcfrontendnavigation/service/AuthenticationServiceTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1cDm5EhEraWAJj72zJIav7wvnr7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="TSP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9262a2f5-b4d3-495f-9cfb-863e87911a1e" name="Default Changelist" comment="" />
+      <created>1590071352374</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590071352374</updated>
+      <workItem from="1590071354136" duration="169000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="166" y="27" width="1024" height="704" key="SettingsEditor" timestamp="1590071524367">
+      <screen x="0" y="27" width="1366" height="704" />
+    </state>
+    <state x="166" y="27" width="1024" height="704" key="SettingsEditor/0.27.1366.704@0.27.1366.704" timestamp="1590071524367" />
+  </component>
+  <component name="com.vaadin.designer2.intellij.settings.SizePresetsSettingsComponent">
+    <option name="sizePresets">
+      <list>
+        <SizePreset>
+          <option name="caption" value="Phone" />
+          <option name="height" value="568" />
+          <option name="width" value="320" />
+        </SizePreset>
+        <SizePreset>
+          <option name="caption" value="Tablet" />
+          <option name="height" value="1024" />
+          <option name="width" value="768" />
+        </SizePreset>
+        <SizePreset>
+          <option name="caption" value="Desktop" />
+          <option name="height" value="900" />
+          <option name="width" value="1440" />
+        </SizePreset>
+      </list>
+    </option>
+  </component>
+</project>
