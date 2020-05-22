@@ -13,11 +13,6 @@
       <change afterPath="$PROJECT_DIR$/../PickUpPlan/src/main/java/Location.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../PickUpPlan/src/main/java/Main.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../PickUpPlan/src/main/java/Window.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/LocalSearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Window.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../authorization-server" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../emloyee/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../emloyee/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
@@ -87,6 +82,10 @@
       <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/resources/application.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/test/java/bd/edu/seu/wcfrontendnavigation/WcFrontendNavigationApplicationTests.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/test/java/bd/edu/seu/wcfrontendnavigation/service/AuthenticationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LocalSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LocalSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/LocalSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LocalSearch.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1cDm5EhEraWAJj72zJIav7wvnr7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -112,13 +111,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunManager">
@@ -145,18 +145,39 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590071352374</updated>
-      <workItem from="1590071354136" duration="169000" />
+      <workItem from="1590071354136" duration="546000" />
+      <workItem from="1590131395383" duration="11012000" />
+      <workItem from="1590143662402" duration="10568000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="166" y="27" width="1024" height="704" key="SettingsEditor" timestamp="1590071524367">
+    <state width="1320" height="279" key="GridCell.Tab.0.bottom" timestamp="1590154166392">
       <screen x="0" y="27" width="1366" height="704" />
     </state>
-    <state x="166" y="27" width="1024" height="704" key="SettingsEditor/0.27.1366.704@0.27.1366.704" timestamp="1590071524367" />
+    <state width="1320" height="279" key="GridCell.Tab.0.bottom/0.27.1366.704@0.27.1366.704" timestamp="1590154166392" />
+    <state width="1320" height="279" key="GridCell.Tab.0.center" timestamp="1590154166392">
+      <screen x="0" y="27" width="1366" height="704" />
+    </state>
+    <state width="1320" height="279" key="GridCell.Tab.0.center/0.27.1366.704@0.27.1366.704" timestamp="1590154166392" />
+    <state width="1320" height="279" key="GridCell.Tab.0.left" timestamp="1590154166391">
+      <screen x="0" y="27" width="1366" height="704" />
+    </state>
+    <state width="1320" height="279" key="GridCell.Tab.0.left/0.27.1366.704@0.27.1366.704" timestamp="1590154166391" />
+    <state width="1320" height="279" key="GridCell.Tab.0.right" timestamp="1590154166392">
+      <screen x="0" y="27" width="1366" height="704" />
+    </state>
+    <state width="1320" height="279" key="GridCell.Tab.0.right/0.27.1366.704@0.27.1366.704" timestamp="1590154166392" />
+    <state x="166" y="27" width="1024" height="704" key="SettingsEditor" timestamp="1590143641208">
+      <screen x="0" y="27" width="1366" height="704" />
+    </state>
+    <state x="166" y="27" width="1024" height="704" key="SettingsEditor/0.27.1366.704@0.27.1366.704" timestamp="1590143641208" />
   </component>
   <component name="com.vaadin.designer2.intellij.settings.SizePresetsSettingsComponent">
     <option name="sizePresets">
