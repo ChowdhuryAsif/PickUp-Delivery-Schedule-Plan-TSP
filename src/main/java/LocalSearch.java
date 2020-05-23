@@ -13,6 +13,7 @@ public class LocalSearch {
     HashMap<Integer, Long> timeOfPositions;
     List<Integer> nodeList;
     Integer timeStamp[];
+    Long dp[];
     Location headOffice = new Location(23.7938636,90.4053257); // AR Tower location
 
     public LocalSearch() {
@@ -24,35 +25,73 @@ public class LocalSearch {
     }
 
     private void takeInput() {
-        try(RandomAccessFile input = new RandomAccessFile("input.txt", "r")) {
-            String line;
-            nodes = Integer.parseInt(input.readLine());
 
-            for(int i=1; i<=nodes; i++){
-                line = input.readLine();
-                String tokens[] = line.split("\\ ");
-                nodeList.add(i);
-                Double longitude = Double.parseDouble(tokens[0]);
-                Double latitude = Double.parseDouble(tokens[1]);
-                locationHashMap.put(i, new Location(longitude, latitude));
+//        Random random = new Random();
+//        nodes = 10;
+//        //System.out.println(nodes);
+//
+//        for(int i=1; i<=nodes; i++){
+//            nodeList.add(i);
+//            Double lon = Math.min(random.nextDouble()*10, 10);
+//            Double lat = Math.min(random.nextDouble()*100, 20) - random.nextInt(10);
+//            Location location = new Location(lon, lat);
+//
+//            //System.out.println(location.toString());
+//
+//            int start = Math.max(random.nextInt(62640) + 2160, 2160);
+//            int end = Math.max(random.nextInt(62640) + 2160, 2160);
+//
+//            if(start > end){
+//                int temp = start;
+//                start = end;
+//                end = temp;
+//            }
+//
+//            start = getTimeIn24((long) start);
+//            end = getTimeIn24((long) end);
+//            Window window = new Window(start, end);
+//
+//            ///System.out.println(window.toString());
+//
+//            locationHashMap.put(i, location);
+//            windowHashMap.put(i, window);
+//        }
 
-                int startTime = Integer.parseInt(tokens[2]);
-                int endTime = Integer.parseInt(tokens[3]);
-                windowHashMap.put(i, new Window(startTime, endTime));
-            }
+        //printLocationHashMap(locationHashMap);
+        //printWindowHashMap(windowHashMap);
 
-//            Long penalty = getPenaltyDP(0, nodeList,
-//                    startOfDuty+getTravelTime(headOffice, locationHashMap.get(nodeList.get(0))));
-//            System.out.println(penalty);
-//            printTimeOfPosition(timeOfPositions);
-            //printHashMap(locationHashMap);
-            //printWindowHashMap(windowHashMap);
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+
+//        try(RandomAccessFile input = new RandomAccessFile("input.txt", "r")) {
+//            String line;
+//            nodes = Integer.parseInt(input.readLine());
+//
+//            for(int i=1; i<=nodes; i++){
+//                line = input.readLine();
+//                String tokens[] = line.split("\\ ");
+//                nodeList.add(i);
+//                Double longitude = Double.parseDouble(tokens[0]);
+//                Double latitude = Double.parseDouble(tokens[1]);
+//                locationHashMap.put(i, new Location(longitude, latitude));
+//
+//                int startTime = Integer.parseInt(tokens[2]);
+//                int endTime = Integer.parseInt(tokens[3]);
+//                windowHashMap.put(i, new Window(startTime, endTime));
+//            }
+//
+////            Long penalty = calculateFitness(0, nodeList,
+////                    startOfDuty+getTravelTime(headOffice, locationHashMap.get(nodeList.get(0))));
+////            System.out.println(penalty);
+////            printTimeOfPosition(timeOfPositions);
+//            //printHashMap(locationHashMap);
+//            //printWindowHashMap(windowHashMap);
+//
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void printLocationHashMap(HashMap<Integer, Location> locationHashMap){
@@ -78,9 +117,11 @@ public class LocalSearch {
     }
 
     public void startSearch(){
-        final double initialTemperature = 100;
+        final double initialTemperature = 1000;
         final double coolingRate = 1E-4;
         timeStamp = new Integer[nodes+10];
+        dp = new Long[nodes+10];
+
 
         //Adding HeadOffice location in the locationHashMap===
         locationHashMap.put(0, headOffice);
@@ -91,6 +132,7 @@ public class LocalSearch {
         windowHashMap.put(nodes+1, new Window(startOfDuty, endOfDuty));
 
         double currentTemperature = initialTemperature;
+        for(int i=0; i<=nodes; i++) dp[i] = Long.MAX_VALUE;
 
         List<Integer> currentPath = nodeList;
         final List<Integer> bestPath = new ArrayList();
@@ -101,7 +143,7 @@ public class LocalSearch {
         currentPath.add(0, 0); currentPath.add(nodeList.size());
         //====================================================================
 
-        Long currentPenalty = getPenaltyDP(0, currentPath, (long)startOfDuty);
+        Long currentPenalty = calculateFitness(0, currentPath, (long)startOfDuty);
 
         // removing headOffice from the path===
         currentPath.remove(0); currentPath.remove(currentPath.size()-1);
@@ -115,6 +157,7 @@ public class LocalSearch {
         while(currentTemperature > 0 && bestPenalty > 0){
             previousPenalty = currentPenalty;
             List<Integer> nextRandomPath = new ArrayList();
+            for(int i=0; i<=nodes; i++) dp[i] = Long.MAX_VALUE;
 
             currentPath.forEach(node -> nextRandomPath.add(node));
             Collections.shuffle(nextRandomPath); // getting random path==========
@@ -122,7 +165,7 @@ public class LocalSearch {
             //adding headOffice to the front and back======
             nextRandomPath.add(0, 0); nextRandomPath.add(nodeList.size());
             //=======================================================================
-            currentPenalty = getPenaltyDP(0, nextRandomPath, (long)startOfDuty);
+            currentPenalty = calculateFitness(0, nextRandomPath, (long)startOfDuty);
 
             // removing headOffice from the path===
             nextRandomPath.remove(0); nextRandomPath.remove(nextRandomPath.size()-1);
@@ -155,7 +198,7 @@ public class LocalSearch {
         System.out.println("Total Penalty: " + bestPenalty);
     }
 
-    public Long getPenaltyDP(int pos, List<Integer> nodeList, Long currentTime){
+    public Long calculateFitness(int pos, List<Integer> nodeList, Long currentTime){
         // I am using dp because I may wait for a node.window.startTime() or I may get penalty
         // in which way is best I will take it
         // so I am choosing the best by waiting and getting penalty
@@ -163,11 +206,11 @@ public class LocalSearch {
         // The first and last element of the nodeList is the HeadOffice======
 
         if(pos >= nodeList.size()-2) return 0l;
-
+        if(dp[pos] != Long.MAX_VALUE) return dp[pos];
         // If we can't reach next terminal in duty time===
         if(currentTime+getTravelTime(locationHashMap.get(nodeList.get(pos)),
                 locationHashMap.get(nodeList.get(pos+1)))+120 > endOfDuty){
-            return (nodeList.size()-pos-2) * 10000l;
+            return dp[pos] = Math.min(dp[pos], (nodeList.size()-pos-2) * 10000l);
         }
 
         Window window = windowHashMap.get(nodeList.get(pos+1));
@@ -177,21 +220,21 @@ public class LocalSearch {
 
         // If we reach earlier we have an option to wait for the client's window time=
         if(currentTime+travelTime < window.getStartTimeInSecond()){
-            p = getPenaltyDP(pos + 1, nodeList,
+            p = calculateFitness(pos + 1, nodeList,
                     currentTime + travelTime + getTerminalPenalty(currentTime, window) + 120);
         }
         // we must get penalty, may be it will be 0 if we reach in between client's window time==
-        q = getPenaltyDP(pos+1, nodeList,
+        q = calculateFitness(pos+1, nodeList,
                 currentTime+travelTime+120) + getTerminalPenalty(currentTime+travelTime, window);
 
         // setting up how we choose to go to the next terminal==========
         if(p <= q){
             timeStamp[pos+1] = 1;
-            return p;
+            return dp[pos] = Math.min(dp[pos], p);
         }
         else{
             timeStamp[pos+1] = 2;
-            return q;
+            return dp[pos] = Math.min(dp[pos], q);
         }
     }
 
@@ -200,21 +243,28 @@ public class LocalSearch {
         //adding headOffice=============
         nodeList.add(0, 0);
 
-        //System.out.println("In setTimeOfPos: " + nodeList);
+        for(int i=0; i<=nodes+2; i++) System.out.println(i + " " + timeStamp[i]);
 
-        for(int i=1; i<nodeList.size(); i++){
+        System.out.println("In setTimeOfPos: " + nodeList);
+
+        int i=1;
+        for( ; i<nodeList.size(); i++){
+            if(timeStamp[nodeList.get(i)] == null) break;
             Long travelTime = getTravelTime(locationHashMap.get(nodeList.get(i-1)),
                     locationHashMap.get(nodeList.get(i)));
             Long penaltyTime = getTerminalPenalty(currentTime+travelTime,
                     windowHashMap.get(nodeList.get(i)));
 
             // setting up current time according to our choice of visiting terminal========
+            if(timeStamp[nodeList.get(i)] == null) System.out.println(i + " " + nodeList.get(i));
             if(timeStamp[nodeList.get(i)] == 1) currentTime += (travelTime + penaltyTime);
             else currentTime += travelTime;
 
             timeOfPositions.put(nodeList.get(i), currentTime);
             currentTime += 120;
         }
+
+        System.out.println("Break Point: " + i);
 
         int lastNode = nodeList.get(nodeList.size()-1);
         int head = nodes+1;
