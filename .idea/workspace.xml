@@ -13,7 +13,6 @@
       <change afterPath="$PROJECT_DIR$/../PickUpPlan/src/main/java/Location.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../PickUpPlan/src/main/java/Main.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../PickUpPlan/src/main/java/Window.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GeneticAlgorithm.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../authorization-server" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../emloyee/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../emloyee/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
@@ -84,10 +83,7 @@
       <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/test/java/bd/edu/seu/wcfrontendnavigation/WcFrontendNavigationApplicationTests.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/test/java/bd/edu/seu/wcfrontendnavigation/service/AuthenticationServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LocalSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LocalSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LocalSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/LocalSearch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GeneticAlgorithm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +147,7 @@
       <workItem from="1590131395383" duration="11012000" />
       <workItem from="1590143662402" duration="10568000" />
       <workItem from="1590238955769" duration="23930000" />
+      <workItem from="1590276378198" duration="4664000" />
     </task>
     <servers />
   </component>
@@ -165,22 +162,22 @@
       <screen x="0" y="27" width="1366" height="704" />
     </state>
     <state x="491" y="97" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/0.27.1366.704@0.27.1366.704" timestamp="1590257068065" />
-    <state width="1320" height="204" key="GridCell.Tab.0.bottom" timestamp="1590273602586">
+    <state width="1320" height="278" key="GridCell.Tab.0.bottom" timestamp="1590280946429">
       <screen x="0" y="27" width="1366" height="704" />
     </state>
-    <state width="1320" height="204" key="GridCell.Tab.0.bottom/0.27.1366.704@0.27.1366.704" timestamp="1590273602586" />
-    <state width="1320" height="204" key="GridCell.Tab.0.center" timestamp="1590273602585">
+    <state width="1320" height="278" key="GridCell.Tab.0.bottom/0.27.1366.704@0.27.1366.704" timestamp="1590280946429" />
+    <state width="1320" height="278" key="GridCell.Tab.0.center" timestamp="1590280946425">
       <screen x="0" y="27" width="1366" height="704" />
     </state>
-    <state width="1320" height="204" key="GridCell.Tab.0.center/0.27.1366.704@0.27.1366.704" timestamp="1590273602585" />
-    <state width="1320" height="204" key="GridCell.Tab.0.left" timestamp="1590273602585">
+    <state width="1320" height="278" key="GridCell.Tab.0.center/0.27.1366.704@0.27.1366.704" timestamp="1590280946425" />
+    <state width="1320" height="278" key="GridCell.Tab.0.left" timestamp="1590280946424">
       <screen x="0" y="27" width="1366" height="704" />
     </state>
-    <state width="1320" height="204" key="GridCell.Tab.0.left/0.27.1366.704@0.27.1366.704" timestamp="1590273602585" />
-    <state width="1320" height="204" key="GridCell.Tab.0.right" timestamp="1590273602585">
+    <state width="1320" height="278" key="GridCell.Tab.0.left/0.27.1366.704@0.27.1366.704" timestamp="1590280946424" />
+    <state width="1320" height="278" key="GridCell.Tab.0.right" timestamp="1590280946428">
       <screen x="0" y="27" width="1366" height="704" />
     </state>
-    <state width="1320" height="204" key="GridCell.Tab.0.right/0.27.1366.704@0.27.1366.704" timestamp="1590273602585" />
+    <state width="1320" height="278" key="GridCell.Tab.0.right/0.27.1366.704@0.27.1366.704" timestamp="1590280946428" />
     <state width="1320" height="204" key="GridCell.Tab.1.bottom" timestamp="1590273602588">
       <screen x="0" y="27" width="1366" height="704" />
     </state>

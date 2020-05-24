@@ -64,12 +64,43 @@ public class GeneticAlgorithm {
         }
     }
 
+
+
+    public  void printPopulation(List<List<Integer>> population){
+        System.out.println("Population:");
+        population.forEach(path -> System.out.println(path.toString()));
+    }
+
+    public void startSearch(){
+
+        nodeList.forEach(node -> bestPathEver.add(node));
+        generatePopulation(20);
+        //geneticAlgorithm.printPopulation(geneticAlgorithm.population);
+        int k = 10;
+        while(k > 0){
+            getFitnessOfPopulation(population);
+
+            //System.out.println("First Generation:");
+            //population.forEach(path -> System.out.println(path));
+
+            normalizeFitness();
+            nextGeneration();
+
+            System.out.println(11-k + "th Generation:");
+            //population.forEach(path -> System.out.println(path));
+
+            System.out.println("BestPathEver: " + bestPathEver);
+            System.out.println("Best Fitness: " + bestFitnessEver);
+            k--;
+        }
+
+    }
     public void generatePopulation(int n){
         fitness = new Double[n]; // we will record fitness of each population===
 
         for(int i=1; i<=n; i++){
             List<Integer> randomPath = new ArrayList();
-            nodeList.forEach(node -> randomPath.add(node));
+            bestPathEver.forEach(node -> randomPath.add(node));
             Collections.shuffle(randomPath);
             population.add(randomPath);
         }
@@ -83,44 +114,13 @@ public class GeneticAlgorithm {
             if(fitness < bestFitnessEver){
                 bestFitnessEver = fitness;
                 bestPathEver = path;
+                //System.out.println(path + " " + fitness);
             }
             // I have inverted the fitness so that the lower value become higher and higher one become lower
             // this is for calculating the probability of acceptance=======
             this.fitness[i] = 1.00/fitness; //obviously here fitness can't be 0
             //System.out.println(i + " " + this.fitness[i]);
         }
-    }
-
-    public  void printPopulation(List<List<Integer>> population){
-        System.out.println("Population:");
-        population.forEach(path -> System.out.println(path.toString()));
-    }
-
-    public void startSearch(){
-
-        generatePopulation(10);
-        //geneticAlgorithm.printPopulation(geneticAlgorithm.population);
-        int k = 100;
-        while(k > 0){
-            getFitnessOfPopulation(population);
-
-            //System.out.println("First Generation:");
-            //population.forEach(path -> System.out.println(path));
-
-
-
-
-            normalizeFitness();
-            nextGeneration();
-
-            System.out.println(101-k + "th Generation:");
-            //population.forEach(path -> System.out.println(path));
-
-            System.out.println("BestPathEver: " + bestPathEver);
-            System.out.println("Best Fitness: " + bestFitnessEver);
-            k--;
-        }
-
     }
 
     public Long calculateFitness(List<Integer> path){
@@ -193,15 +193,43 @@ public class GeneticAlgorithm {
     }
 
     public void nextGeneration(){
+        //System.out.println("In NextGeneration:");
         List<List<Integer>> newPopulation = new ArrayList();
 
         for(int i=0; i<population.size(); i++){
-            List<Integer> path = pickOne();
-            mutate(path);
+            List<Integer> pathA = pickOne();
+            List<Integer> pathB = pickOne();
+
+            List<Integer> path = crossOver(pathA, pathB);
+
+            mutate(path, 0.01);
             newPopulation.add(path);
         }
         population.clear();
         population = newPopulation;
+    }
+
+    private List<Integer> crossOver(List<Integer> pathA, List<Integer> pathB) {
+        //System.out.println("In CrossOver:");
+        Random random = new Random();
+        List<Integer> newPath = new ArrayList();
+
+        int start = random.nextInt(pathA.size());
+        int end = Math.min(random.nextInt(start+1)+start, pathA.size()-1);
+
+        for (int i=start; i<=end; i++) newPath.add(pathA.get(i));
+        //System.out.println("SubList: " + newPath);
+
+        for(int i=0; i<pathB.size(); i++){
+            int node = pathB.get(i);
+            if(!newPath.contains(node)){
+                newPath.add(node);
+            }
+        }
+//        System.out.println("PathA: " + pathA);
+//        System.out.println("PathB: " + pathB);
+//        System.out.println("NewPath: " + newPath);
+        return newPath;
     }
 
     public List<Integer> pickOne(){
@@ -215,11 +243,15 @@ public class GeneticAlgorithm {
         return population.get(idx);
     }
 
-    public void mutate(List<Integer> path){
-        int idxA = new Random().nextInt(path.size());
-        int idxB = new Random().nextInt(path.size());
-
-        swap(path, idxA, idxB);
+    public void mutate(List<Integer> path, Double mutationRate){
+        Random random = new Random();
+        for(int i=0; i<path.size(); i++){
+            if(random.nextDouble() < mutationRate){
+                int idxA = random.nextInt(path.size());
+                int idxB = (idxA+1) % path.size();
+                swap(path, idxA, idxB);
+            }
+        }
     }
 
     public void swap(List<Integer> lst, int idxA, int idxB){
