@@ -1,3 +1,4 @@
+import javax.swing.plaf.IconUIResource;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -11,6 +12,7 @@ public class GeneticAlgorithm {
     List<List<Integer>> population;
     HashMap<Integer, Location> locationHashMap;
     HashMap<Integer, Window> windowHashMap;
+    HashMap<Integer, Long> timeOfPositions;
     Double fitness[];
 
     List<Integer> bestPathEver;
@@ -21,6 +23,7 @@ public class GeneticAlgorithm {
     public GeneticAlgorithm() {
         locationHashMap = new HashMap();
         windowHashMap = new HashMap();
+        timeOfPositions = new HashMap();
         nodeList = new ArrayList();
         population = new ArrayList();
         bestPathEver = new ArrayList();
@@ -55,7 +58,7 @@ public class GeneticAlgorithm {
             windowHashMap.put(0, new Window(startOfDuty, endOfDuty));
             windowHashMap.put(nodes+1, new Window(startOfDuty, endOfDuty));
 
-            System.out.println("NodeList: " + nodeList.toString());
+            //System.out.println("NodeList: " + nodeList.toString());
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -74,9 +77,9 @@ public class GeneticAlgorithm {
     public void startSearch(){
 
         nodeList.forEach(node -> bestPathEver.add(node));
-        generatePopulation(20);
+        generatePopulation(20); // if it increases result will be better but harmful for time complexity
         //geneticAlgorithm.printPopulation(geneticAlgorithm.population);
-        int k = 10;
+        int k = 10; // if it increases result will be better but harmful for time complexity
         while(k > 0){
             getFitnessOfPopulation(population);
 
@@ -86,13 +89,32 @@ public class GeneticAlgorithm {
             normalizeFitness();
             nextGeneration();
 
-            System.out.println(11-k + "th Generation:");
+            //System.out.println(11-k + "th Iteration:");
             //population.forEach(path -> System.out.println(path));
 
-            System.out.println("BestPathEver: " + bestPathEver);
-            System.out.println("Best Fitness: " + bestFitnessEver);
+//            System.out.println("BestPathEver: " + bestPathEver);
+//            System.out.println("Best Fitness: " + bestFitnessEver);
             k--;
         }
+
+        //System.out.println("BestPathEver: " + bestPathEver);
+        //System.out.println("Best Fitness: " + bestFitnessEver);
+
+        bestPathEver.add(0, 0); // adding front headOffice to tha front
+
+        // setting up time of positions for the best path ever===
+        setTimeOfPositions(bestPathEver);
+
+        bestPathEver.add(nodes+1);// adding back headOffice to the back
+
+        timeOfPositions.forEach((node, time) -> {
+            Location location = locationHashMap.get(bestPathEver.get(node));
+            int timeIn24 = getTimeIn24(time);
+
+            System.out.println(location.toString() + " Time: " + timeIn24);
+        });
+
+        System.out.println("Penalty: " + bestFitnessEver);
 
     }
     public void generatePopulation(int n){
@@ -260,6 +282,44 @@ public class GeneticAlgorithm {
         lst.set(idxB, temp);
     }
 
+    public void setTimeOfPositions(List<Integer> nodeList){
+        Long currentTime = (long)startOfDuty;
+        Long packagingTime = 120l; //2 min in second
+        timeOfPositions.put(0, currentTime);
+
+        for(int i=1; i<nodeList.size(); i++){
+            int node = nodeList.get(i);
+
+            Long travelTime = getTravelTime(locationHashMap.get(nodeList.get(i-1)),
+                    locationHashMap.get(node));
+
+            Window window = windowHashMap.get(node);
+            Long penaltyTime = getTerminalPenalty(currentTime+travelTime, window);
+
+            currentTime += travelTime; // I reached at the terminal let's define I have to wait or not
+
+            if(currentTime < window.getStartTimeInSecond()) {
+                // I have reached earlier =====
+                currentTime += penaltyTime; // I have waited for the client's window time======
+                timeOfPositions.put(i, currentTime);
+            }
+            else {
+                // I have reached in time or after window time so I will not wait more ..
+                timeOfPositions.put(i, currentTime);
+                // penalty maybe 0 if I have reached between window time or I will get some penalty
+                currentTime += penaltyTime;
+            }
+            currentTime += packagingTime;
+
+            //System.out.println("CurrentTime: " + currentTime);
+        }
+
+        int lastNode = nodeList.get(nodeList.size()-1);
+        int head = nodes+1; // as I have only nodes number of nodes I declared nodes+1 as back headOffice
+        timeOfPositions.put(head, currentTime + getTravelTime(locationHashMap.get(lastNode), headOffice));
+
+    }
+
     public Long getTravelTime(Location A, Location B){
         Double speed = 50000.00/3600.00; // speed in m/s===
 
@@ -288,5 +348,11 @@ public class GeneticAlgorithm {
         }
 
         return penaltyTime;
+    }
+
+    public int getTimeIn24(Long time){
+        int hours = (int)(time/3600)*100;
+        int minutes = (int)(time%3600)/60;
+        return hours+minutes; // returned in 24h format
     }
 }
