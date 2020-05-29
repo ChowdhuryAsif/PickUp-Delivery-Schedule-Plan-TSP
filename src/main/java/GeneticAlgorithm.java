@@ -92,8 +92,7 @@ public class GeneticAlgorithm {
             //System.out.println(11-k + "th Iteration:");
             //population.forEach(path -> System.out.println(path));
 
-//            System.out.println("BestPathEver: " + bestPathEver);
-//            System.out.println("Best Fitness: " + bestFitnessEver);
+            //System.out.println("BestPathEver: " + bestPathEver + " Penalty: " + bestFitnessEver);
             k--;
         }
 
