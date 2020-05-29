@@ -82,10 +82,6 @@
       <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/resources/application.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/test/java/bd/edu/seu/wcfrontendnavigation/WcFrontendNavigationApplicationTests.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/test/java/bd/edu/seu/wcfrontendnavigation/service/AuthenticationServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GeneticAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LocalSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LocalSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +147,7 @@
       <workItem from="1590238955769" duration="23930000" />
       <workItem from="1590276378198" duration="4827000" />
       <workItem from="1590392164327" duration="5700000" />
-      <workItem from="1590761802497" duration="405000" />
+      <workItem from="1590761802497" duration="788000" />
     </task>
     <servers />
   </component>
