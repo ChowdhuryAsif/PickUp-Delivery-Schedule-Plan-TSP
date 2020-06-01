@@ -16,7 +16,7 @@ public class GeneticAlgorithm {
     Double fitness[];
 
     List<Integer> bestPathEver;
-    Long bestFitnessEver;
+    Long bestPenaltyEver;
 
     Location headOffice = new Location(23.7938636,90.4053257); // AR Tower location
 
@@ -27,7 +27,7 @@ public class GeneticAlgorithm {
         nodeList = new ArrayList();
         population = new ArrayList();
         bestPathEver = new ArrayList();
-        bestFitnessEver = Long.MAX_VALUE;
+        bestPenaltyEver = Long.MAX_VALUE;
 
         takeInput();
     }
@@ -93,12 +93,12 @@ public class GeneticAlgorithm {
             //System.out.println(11-k + "th Iteration:");
             //population.forEach(path -> System.out.println(path));
 
-            //System.out.println("BestPathEver: " + bestPathEver + " Penalty: " + bestFitnessEver);
+            //System.out.println("BestPathEver: " + bestPathEver + " Penalty: " + bestPenaltyEver);
             k--;
         }
 
         //System.out.println("BestPathEver: " + bestPathEver);
-        //System.out.println("Best Fitness: " + bestFitnessEver);
+        //System.out.println("Best Fitness: " + bestPenaltyEver);
 
         bestPathEver.add(0, 0); // adding front headOffice to tha front
 
@@ -114,7 +114,7 @@ public class GeneticAlgorithm {
             System.out.println(location.toString() + " Time: " + timeIn24);
         });
 
-        System.out.println("Penalty: " + bestFitnessEver);
+        System.out.println("Penalty: " + bestPenaltyEver);
 
     }
     public void generatePopulation(int n){
@@ -133,8 +133,8 @@ public class GeneticAlgorithm {
             List<Integer> path = population.get(i);
 
             Long fitness = calculateFitness(path);
-            if(fitness < bestFitnessEver){
-                bestFitnessEver = fitness;
+            if(fitness < bestPenaltyEver){
+                bestPenaltyEver = fitness;
                 bestPathEver = path;
                 //System.out.println(path + " " + fitness);
             }
@@ -186,18 +186,12 @@ public class GeneticAlgorithm {
             // if I go to the last node of path which is headOffice
             // I have to add another condition here to ignore penaltyTime and packaging time
             // so I will calculate this at the end of this method
-            fitness += travelTime + penaltyTime + packagingTime;
+            fitness += penaltyTime;
             currentTime += travelTime + penaltyTime + packagingTime;
         }
         // removing front and back headOffice from the path;
         path.remove(0);
         path.remove(path.size()-1);
-
-        int lastNode = path.get(path.size()-1);
-        Location lastNodeLocation = locationHashMap.get(lastNode);
-
-        // adding travelTime from lastNode to headOffice ========
-        fitness += getTravelTime(lastNodeLocation, headOffice);
 
         return fitness;
     }
