@@ -33,6 +33,7 @@ public class GeneticAlgorithm {
     }
 
     public void takeInput(){
+
         try(RandomAccessFile input = new RandomAccessFile("input.txt", "r")) {
             String line;
             nodes = Integer.parseInt(input.readLine());
