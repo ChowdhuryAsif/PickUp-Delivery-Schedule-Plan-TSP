@@ -109,12 +109,17 @@ public class GeneticAlgorithm {
 
         timeOfPositions.forEach((node, time) -> {
             Location location = locationHashMap.get(bestPathEver.get(node));
-            int timeIn24 = getTimeIn24(time);
+            if(time == -1){
+                System.out.println(location.toString() + " Can't Provide Service.");
+            }
+            else{
+                int timeIn24 = getTimeIn24(time);
+                System.out.println(location.toString() + " Time: " + timeIn24);
+            }
 
-            System.out.println(location.toString() + " Time: " + timeIn24);
         });
 
-        System.out.println("Penalty: " + bestPenaltyEver);
+        System.out.println("Penalty: " + bestPenaltyEver + " minutes");
 
     }
     public void generatePopulation(int n){
@@ -164,7 +169,7 @@ public class GeneticAlgorithm {
             Window windowB = windowHashMap.get(path.get(i));
 
             Long travelTime = getTravelTime(terminalA, terminalB);
-            Long penaltyTime = getTerminalPenalty(currentTime+travelTime, windowB);
+            Long penaltyTime = getTerminalPenalty(currentTime+travelTime, windowB) / 60;
 
             if(currentTime+travelTime < windowB.getStartTimeInSecond()){
                 // if can't reach headOffice by picking next package before endOfDuty===
@@ -283,27 +288,34 @@ public class GeneticAlgorithm {
 
         for(int i=1; i<nodeList.size(); i++){
             int node = nodeList.get(i);
-
-            Long travelTime = getTravelTime(locationHashMap.get(nodeList.get(i-1)),
-                    locationHashMap.get(node));
+            Location terminalA = locationHashMap.get(nodeList.get(i-1));
+            Location terminalB = locationHashMap.get(node);
+            Long travelTime = getTravelTime(terminalA, terminalB);
 
             Window window = windowHashMap.get(node);
             Long penaltyTime = getTerminalPenalty(currentTime+travelTime, window);
 
-            currentTime += travelTime; // I reached at the terminal let's define I have to wait or not
-
-            if(currentTime < window.getStartTimeInSecond()) {
+            // if I can't Pick here ==========
+            if(currentTime+travelTime+penaltyTime+packagingTime+getTravelTime(terminalB, headOffice) > endOfDuty){
+                timeOfPositions.put(i, -1l);
+            }
+            else if(currentTime < window.getStartTimeInSecond()) {
                 // I have reached earlier =====
-                currentTime += penaltyTime; // I have waited for the client's window time======
-                timeOfPositions.put(i, currentTime);
+                // I have waited for the client's window time======
+                timeOfPositions.put(i, currentTime + travelTime + penaltyTime);
+                currentTime += travelTime;
+                currentTime += penaltyTime;
+                currentTime += packagingTime;
             }
             else {
                 // I have reached in time or after window time so I will not wait more ..
-                timeOfPositions.put(i, currentTime);
+                timeOfPositions.put(i, currentTime + travelTime);
                 // penalty maybe 0 if I have reached between window time or I will get some penalty
                 currentTime += penaltyTime;
+                currentTime += travelTime;
+                currentTime += packagingTime;
             }
-            currentTime += packagingTime;
+
 
             //System.out.println("CurrentTime: " + currentTime);
         }
