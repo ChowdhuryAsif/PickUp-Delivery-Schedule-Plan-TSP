@@ -119,7 +119,7 @@ public class GeneticAlgorithm {
 
         });
 
-        System.out.println("Penalty: " + bestPenaltyEver + " minutes");
+        System.out.println("Penalty: " + bestPenaltyEver);
 
     }
     public void generatePopulation(int n){
