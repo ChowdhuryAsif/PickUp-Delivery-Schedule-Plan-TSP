@@ -114,14 +114,38 @@ public class GeneticAlgorithm {
             }
             else{
                 int timeIn24 = getTimeIn24(time);
-                System.out.println(location.toString() + " Time: " + timeIn24);
+                if(location == headOffice) System.out.print("Head Office");
+                else System.out.print(location.toString());
+                System.out.println(" Time: " + timeIn24);
             }
 
         });
 
-        System.out.println("Penalty: " + bestPenaltyEver);
+        System.out.println("Penalty: " + getFinalPenalty(bestPathEver));
 
     }
+
+    private Long getFinalPenalty(List<Integer> bestPathEver) {
+        Long penalty = 0l;
+        Long currentTime = (long)startOfDuty;
+
+        for(int i=1; i<bestPathEver.size()-1; i++){
+            if(timeOfPositions.get(i) == -1) penalty += 10000;
+            else{
+                Location terminalA = locationHashMap.get(bestPathEver.get(i-1));
+                Location terminalB = locationHashMap.get(bestPathEver.get(i));
+
+                Window windowB = windowHashMap.get(bestPathEver.get(i));
+
+                Long travelTime = getTravelTime(terminalA, terminalB);
+                Long penaltyTime = getTerminalPenalty(currentTime+travelTime, windowB) / 60;
+                penalty += penaltyTime;
+                currentTime += travelTime + penalty + 120;
+            }
+        }
+        return penalty;
+    }
+
     public void generatePopulation(int n){
         fitness = new Double[n]; // we will record fitness of each population===
 
