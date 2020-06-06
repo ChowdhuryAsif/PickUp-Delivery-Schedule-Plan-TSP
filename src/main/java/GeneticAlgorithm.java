@@ -195,21 +195,11 @@ public class GeneticAlgorithm {
             Long travelTime = getTravelTime(terminalA, terminalB);
             Long penaltyTime = getTerminalPenalty(currentTime+travelTime, windowB) / 60;
 
-            if(currentTime+travelTime < windowB.getStartTimeInSecond()){
-                // if can't reach headOffice by picking next package before endOfDuty===
-                if(currentTime+travelTime+penaltyTime+packagingTime+getTravelTime(terminalB, headOffice) > endOfDuty){
-                    errorOccurredAtPos = i-1; // I can't reach here (i.e ith node) ===
-                    break;
-                }
-            }
-            if(errorOccurredAtPos != -1){
-                // removing front and back headOffice from the path;
-                path.remove(0);
-                path.remove(path.size()-1);
-
-                // penalty occurred for the rest of the clients that can't pick in duty time
-                fitness += (path.size()-errorOccurredAtPos-1) * 10000;
-                return fitness;
+            // if can't reach headOffice by picking next package before endOfDuty===
+            if(currentTime+travelTime+penaltyTime+packagingTime+getTravelTime(terminalB, headOffice) > endOfDuty){
+                // I can't provide service here (i.e ith node) ===
+                fitness += 10000;
+                continue;
             }
 
             // if I go to the last node of path which is headOffice
