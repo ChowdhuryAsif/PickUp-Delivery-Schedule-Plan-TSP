@@ -1,0 +1,18 @@
+﻿Pickup planner for Uthao
+Problem
+Your task is to design a system that plans a route for a new startup called “Uthao”. In the wake of this pandemic, it is difficult to send packages/products from one place to another. Uthao plans to provide a courier service where rather than having customers show up to their office to send something via the courier service, they will send people from door-to-door to pick-up (hence the name uthao) the packages and bring them to their office before routing them for delivery.
+
+
+Uthao plans to provide service to a large area of Dhaka city. Everyday a pickup person gets a list of locations (longitude, latitude) from where they need to pick up a package. For all practical purposes, there will be additional data for each of these locations, of course. However, for the task at hand, the list of locations is what matters the most. The pickup person starts from Uthao’s head office (24, Kemal Ataturk Avenue, Banani, Dhaka - 1213), and after picking up all the packages, we will come back to the same office. We can use some map API to know the distance and estimated travel time between two locations. To keep things simple, though, we will assume that the distance between two locations can be measured as Euclidean distance in kilometers. We will also assume that it takes 2 minutes at each pickup point and the pickup person travels at a speed of 50 km/h going from one location to another. Note that the pickup person can travel slower if he/she wants to, but not faster than 50 km/h. Every day the pickup persons start their daily pickup rounds at 6:00 AM, they want to ensure that they can come back to the office after picking up all the packages in the shortest time possible.
+
+
+Uthao has figured out within a few days of operation, some of the clients are picky about the time window (given as start time and end time in 24-hour format) by when the pickup person should visit their premises. By default each client will be okay with a 6:00 AM to 6:00 PM pickup window; however, some clients would have a shorter time window within which they will be available.
+
+
+The pickup person should always try to:
+a) Please as many clients as possible. Not being able to pick up from a client at all (within 6 PM of the same date) results in a penalty of 10,000. Not being able to pick up from a client within their stipulated time window will result in the smallest difference in minutes from either of the endpoints of the time window and the actual pickup time.
+b) Return to the head office after picking up all the packages within the shortest amount of time.
+Input
+The input to this problem will be given in a file as a list of locations and time windows for each of the clients. There can be at most L, 0 < L < 1000 locations to visit. Each of the L lines of the file contains four numbers: longitude, latitude, start time and end time -- the longitude and latitude are floating-point numbers and the start time, end time pairs will describe the time window within which that client will happily give the package to the pickup person.
+Output
+The output will have L + 3 lines. Each of these lines will print 3 numbers: the longitude, latitude of the location, and the time at which the pickup person reached that location. Note that the very first and the second to the last line should print the location of Uthao’s head office. Longitude and latitudes should be printed as floating-point numbers with 2 digits after the dot. Times should be printed in a 24-hour format. The very last line of the output should print the total penalty incurred by the pickup person.

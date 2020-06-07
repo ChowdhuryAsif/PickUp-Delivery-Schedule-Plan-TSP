@@ -82,8 +82,6 @@
       <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/main/resources/application.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/test/java/bd/edu/seu/wcfrontendnavigation/WcFrontendNavigationApplicationTests.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../wc-frontend-navigation/src/test/java/bd/edu/seu/wcfrontendnavigation/service/AuthenticationServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GeneticAlgorithm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,6 +154,7 @@
       <workItem from="1591373647788" duration="24000" />
       <workItem from="1591429187775" duration="880000" />
       <workItem from="1591432044931" duration="441000" />
+      <workItem from="1591530586223" duration="407000" />
     </task>
     <servers />
   </component>
