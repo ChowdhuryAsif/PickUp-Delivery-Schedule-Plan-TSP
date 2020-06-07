@@ -10,7 +10,9 @@ For more clarification about the problem please read problem description.
 
 ## INPUT
 
-```HTML
+```Java
+//Number of input
+//longitude latitude startTime windowTime
 8
 5 15 630 1800
 2 3 1300 1530
