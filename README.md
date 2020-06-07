@@ -11,7 +11,7 @@ For more clarification about the problem please read problem description.
 ## INPUT
 
 ```Java
-//Number of input
+//Number of locations
 //longitude latitude startTime windowTime
 8
 5.00 15.00 630 1800
