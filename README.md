@@ -23,3 +23,18 @@ For more clarification about the problem please read problem description.
 19.00 51.00 605 0740
 21.00 16.00 600 1800
 ```
+## OUTPUT
+
+```Java
+Head Office Time: 600
+Longitude: 21.00, Latitude: 16.00 Time: 802
+Longitude: 19.00, Latitude: 51.00 Time: 846
+Longitude: 7.00, Latitude: 47.00 Time: 1047
+Longitude: 5.00, Latitude: 15.00 Time: 1240
+Longitude: 31.00, Latitude: 43.00 Time: 1321
+Longitude: 2.00, Latitude: 3.00 Time: 1452
+Longitude: 35.00, Latitude: 40.00 Time: 1553
+Longitude: 77.00, Latitude: 85.00 Can't Provide Service.
+Head Office Time: 1709
+Penalty: 10083
+```
